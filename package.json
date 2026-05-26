@@ -1,0 +1,26 @@
+{
+  "name": "@shell-agents/agent-controller",
+  "version": "0.1.0",
+  "description": "Routing, safety enforcement, and audit engine for shell-agents",
+  "license": "Apache-2.0",
+  "private": false,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "tsc --noEmit",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vercel/node": "^3.0.0",
+    "jest": "^29.0.0",
+    "typescript": "^5.4.0"
+  }
+}
