@@ -18,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json(response);
   }
 
-  const { id, params } = parsed.data;
+  const { id, params, auth } = parsed.data;
   const { agent: agentId, capability, args } = params;
 
   const manifest = lookupAgent(agentId);
@@ -60,7 +60,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const agentRes = await fetch(manifest.endpoint, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ jsonrpc: "2.0", id, method: "agent.invoke", params: { capability, args } }),
+    body: JSON.stringify({ jsonrpc: "2.0", id, method: "agent.invoke", params: { capability, args }, auth }),
   });
 
   const result = await agentRes.json();
