@@ -26,6 +26,7 @@ export const InvokeRequest = z.object({
     capability: z.string(),
     args: z.record(z.unknown()).optional(),
   }),
+  auth: z.object({ token: z.string() }).optional(),
 });
 export type InvokeRequest = z.infer<typeof InvokeRequest>;
 
